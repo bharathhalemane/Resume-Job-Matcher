@@ -1,0 +1,93 @@
+
+
+ 
+ 
+ 
+Bharath  
+Halemane  H V 
+ 
+ 
+ 
+Location: Bangalore, Karnataka, 562157 
+Phone no: 6366946276         
+Email: bharath.halemane.00@gmail.com 
+Linkedin: https://www.linkedin.com/in/bharath-halemane-841010287/ 
+GitHub: https://github.com/bharathhalemane/My-Profile.git 
+   
+Skills 
+ 
+Frontend 
+● HTML 
+● CSS 
+● Bootstrap 
+● JavaScript 
+● React.js 
+ Backend 
+● Python 
+● Express 
+● Node.js 
+Data base 
+● SQLite 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Education 
+Nxtwave Disruptive
+ 
+Technologies                                                    
+May 2025 - Ongoing 
+Industry Ready Certification in Full-stack Development 
+Sri Venkateshwar College of Engineering, Bangalore                                              
+2023 - 2027  
+BE (Bachelor of Engineering)_Computer Science Engineering (CSE) (7.6 CGPA) 
+Shree Swami Viveknanda , Turuvekere                                                                      
+2021 - 2023  
+Intermediate_MPC (84.83%) 
+Morarji Desai Residential School, C N Halli / Tumkuru                                             
+2020 - 2021  
+Secondary School Of Certificate (90.08%) 
+ 
+Project 
+Portfolio Website 
+project1_link 
+Technologies used : HTML, CSS, Bootstrap 
+A beautifully designed website to showcase the portfolio of a person, 
+highlighting their projects, skills, testimonials, and contact information. 
+● Built with HTML structure elements and Bootstrap components, offering 
+a user-friendly and responsive layout.Features a dynamic testimonial 
+carousel, displaying endorsements from a diverse range of sources.  
+ 
+Todos Application 
+project2_link 
+Technologies used : HTML, CSS, JS, Bootstrap 
+A robust task tracking system with CRUD capabilities, crafted to simplify task 
+management. 
+● Designed with HTML, CSS and Bootstrap to ensure a user-friendly 
+interface for managing tasks.  
+● Dynamic UI updates through JavaScript event listeners and DOM 
+operations for seamless CRUD operations.  
+
+ 
+● Secure task persistence through local storage methods, ensuring that 
+tasks are never lost.  
+ 
+Typing Speed Test 
+project3_link 
+Technologies used : HTML, CSS, JS, REST API Calls, Bootstrap 
+An application to evaluate and improve your typing speed. 
+● Utilizes JavaScript and REST APIs to fetch and display the paragraph, and 
+dynamically update the timer.  
+● Provides a user-friendly interface to display the typing speed and 
+accuracy.  
+                                                                                
+ 
+ 
+   
+Certificates 
+Python  
+I attend workshop conducted by the famous college in karnataka nitk  
+ 

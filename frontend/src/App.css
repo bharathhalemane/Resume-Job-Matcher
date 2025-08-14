@@ -1,0 +1,17 @@
+/* Background */
+.app-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(120deg, #634444, #031f4f); */
+  background-color: #011424;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  
+}
+h1{
+    margin-bottom:10vh;
+    font-size: 40px;
+    color:aliceblue;
+}
