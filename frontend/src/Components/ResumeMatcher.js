@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import styles from './ResumeMatcher.module.css';
 
 function ResumeMatcher() {
@@ -24,11 +23,9 @@ function ResumeMatcher() {
 
         try {
             setLoading(true);
-            const response = await axios.post("http://localhost:5000/match", formData, {
-                headers: { "Content-Type": "multipart/form-data" }
-            });
-
-            setResult(response.data.result);
+            const response = await fetch("http://localhost:5000/match", { method: "POST", body: formData });
+            const json = await response.json();
+            setResult(json);
         } catch (error) {
             console.error(error);
             setResult("Error matching resume and job description");
@@ -59,11 +56,29 @@ function ResumeMatcher() {
             {result && (
                 <div className={styles["result"]}>
                     <h3>Results:</h3>
-                    {result}
+                    <div className={styles['metric']}>
+                        <span>Match Percentage: </span>
+                        <strong>{result.match_percentage}%</strong>
+                    </div>
+                    <Section title="1. Strengths" items={result.strengths} />
+                    <Section title="2. Missing Skills" items={result.missing_skills} />
+                    <Section title="3. Improvement Tips" items={result.improvement_tips}/>
                 </div>
             )}
         </div>
     );
+}
+
+function Section({ title, items }) {
+    if (!items || !items.length) return null;
+    return (
+        <div className={styles['section']}>
+            <h3>{title}</h3>
+            <ol>
+                {items.map((t, i) => (<li key={i}>{t}</li>))}
+            </ol>
+        </div>
+    )
 }
 
 export default ResumeMatcher;

@@ -37,13 +37,16 @@ app.post("/match", upload.single("resume"), async (req, res) => {
 
         // Create prompt
         const prompt = `
-        Compare the following resume and job description.
-        Provide:
-        1. Match percentage
-        2. Key strengths
-        3. Missing skills
-        4. Resume improvement tips
-
+        Analyze the resume and job description and return STRICT JSON with exactly these keys:
+        {
+            "match_percentage" : <integer 0-100>,
+            "strengths" : [<strings> , ...],
+            "missing_skills" : [<string>, ...],
+            "improvement_tips" : [<string>, ...]
+        }
+        
+        - No markdown, no extra keys, no commentary outside JSON.
+        
         Resume:
         ${resumeText}
 
@@ -54,18 +57,25 @@ app.post("/match", upload.single("resume"), async (req, res) => {
         // Send to OpenAI
         const response = await openai.chat.completions.create({
             model: "gpt-4o-mini",
-            messages: [{ role: "user", content: prompt }]
+            messages: [{ role: "user", content: prompt }],
+            response_format: { type: "json_object" },
+            temperature: 0.2
         });
+
+        // Send response to frontend
+        const content = response.choices[0]?.message?.content ?? "{}";
+        const parsed = JSON.parse(content);
 
         // Delete uploaded file
         fs.unlinkSync(req.file.path);
 
-        // Send response to frontend
-        res.json({ result: response.choices[0].message.content });
+        return res.json(parsed);
+        
 
     } catch (error) {
         console.error(error);
-        res.status(500).send("Error processing request");
+        if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
+        return res.status(500).json({ error: "Error processing request" });
     }
 });
 

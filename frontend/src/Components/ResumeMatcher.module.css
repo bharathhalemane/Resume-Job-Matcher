@@ -18,7 +18,7 @@
 
 /* Card */
 .card {    
-  background: #8e8888;
+  background: #211747;
   color: #fff;
   padding: 50px 60px;
   border-radius: 15px;
@@ -160,4 +160,27 @@ textarea:focus {
     text-align: left;
     padding: 30px;
     border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.metric{
+  display: flex;  
+  padding: 8px 0;
+  font-size: 1.1rem;
+}
+
+.section{
+  margin-top: 12px;
+}
+
+.section h3{
+  margin: 8px 0;
+}
+
+.section ol{
+  padding-left: 18px;
+}
+
+.section li{
+  margin: 4px 0;
 }
