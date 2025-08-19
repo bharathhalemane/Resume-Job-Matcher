@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import ResumeMatcher from './Components/ResumeMatcher.js';
+import ResumeMatcher from './Components/ResumeMatcher.jsx';
 
 function App() {
   return (

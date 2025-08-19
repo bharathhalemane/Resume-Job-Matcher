@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ResumeMatcher.module.css';
+import Chatbot from './ChatbotWidget.jsx'
 
 function ResumeMatcher() {
     const [resume, setResume] = useState(null);
@@ -51,6 +52,10 @@ function ResumeMatcher() {
                         {loading ? "Matching...." : "Match Resume"}
                     </button>
                 </form>
+                <div className="chat-bot">
+                    <Chatbot/>
+                </div>
+
             </div>
 
             {result && (

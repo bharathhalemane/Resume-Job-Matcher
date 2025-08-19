@@ -5,12 +5,14 @@ import multer from "multer";
 import fs from "fs";
 import OpenAI from "openai";
 import pdfParse from "pdf-parse";
+import bodyParser from "body-parser"
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 const upload = multer({ dest: "uploads/" });
 
@@ -77,6 +79,30 @@ app.post("/match", upload.single("resume"), async (req, res) => {
         if (req.file && fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
         return res.status(500).json({ error: "Error processing request" });
     }
+});
+
+app.post("/chat", async (req, res) => {
+    try {
+        const { message } = req.body;
+        const response = await openai.chat.completions.create({
+            model: "gpt-4o-mini",
+            messages: [{
+                role: "user",
+                content: `
+                    Answer as a clean step-by-step text.
+                    - Use plain numbers (1, 2, 3...) instead of * or markdown.
+                    - Each point must be on a new line.
+                    - No extra symbols.
+                    User asked: ${message}
+                ` }],
+            temperature: 0.7
+        });
+
+        res.json({ reply: response.choices[0].message.content });
+    } catch (error) {
+        res.status(500).send("Error fetching chatbot response");
+    }
+    
 });
 
 app.listen(5000, () => console.log("Backend running on port 5000"));
